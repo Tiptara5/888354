@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+  function searchM() {
+      var x = document.getElementById("Text").value;
+
+      var Search = document.getElementById("S").value;
+
+     var j = document.forms[0];
+     var txt = "";
+     var i;
+      for (i = 0; i < j.length; i++) {
+              if (j[i].checked) {
+             txt = txt + j[i].value + " ";
+         }
+     }
+
+      if(Search == '') {
+      document.getElementById("put").innerHTML = "0";
+    }if(Search != '') {
+
+        if(txt == 1){
+            var RE = new RegExp(Search, "gi");
+            document.getElementById("put").innerHTML = "result for serach : " + (x.match(RE).length);
+          }else{
+            var RE = new RegExp(Search, "g");
+            document.getElementById("put").innerHTML = "result for serach : " + (x.match(RE).length);
+
+          }
+
+
+      }
+
+
+}
+</script>
+
+
+  Address:
+    <textarea id="Text"  rows = "4" colS ="20">
+        Massage input 
+    </textarea>
+
+    <br>
+
+<form>
+  <p>Sensitive case :</p>
+    <input type="radio" name="gender" value="0" > Yes
+    <input type="radio" name="gender" value="1" > No
+
+</form>
+<br>
+
+    Search: <input type="text" id = "S"><br><br>
+
+     <input type="button" onclick="searchM()" value="Search">
+
+  <p id="put"></p>
+
+
+
+</body>
+</html>
+
+</html>

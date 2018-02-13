@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  <script>
+  $(document).ready(function(){
+    var sum;
+    $("#button").click(function(){
+      var x = (Math.floor(Math.random() * 1000) + 1);
+      var y = (Math.floor(Math.random() * 1000) + 1);
+      $("#num1").html(x);
+      $("#num2").html(y);
+      sum = x+y;
+      return sum;
+    });
+    $("#check").click(function(){
+      var result = $("#ans").val();
+      if(sum==result){
+          $("#total").html("This is correct");
+          $("#total").css("color","green");
+       } else{
+           $("#total").html("That's wrong.The answer is "+sum);
+            $("#total").css("color","red");
+           }
+    });
+  });
+
+  </script>
+</head>
+<body>
+  <center><h1>Ex - Random Number for Answer</h1></center>
+  <hr>
+  <center>
+    <button type="button" id="button">Random Number</button>
+    <br><br>
+    <span id="num1">?</span> + <span id="num2">?</span> = <input type="text" id="ans">
+    <br><br>
+    <button type="button" id="check">Send Answer</button>
+    <br><br>
+    Result : <span id="total"></span>
+  </center>
+  </body>
+  </html>
